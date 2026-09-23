@@ -1,0 +1,17 @@
+[Unit]
+Description=HeavenCloud Session Login Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/hc-userbot
+ExecStart=/opt/hc-userbot/venv/bin/python /opt/hc-userbot/login_bot.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/hc-loginbot.log
+StandardError=append:/var/log/hc-loginbot.log
+
+[Install]
+WantedBy=multi-user.target

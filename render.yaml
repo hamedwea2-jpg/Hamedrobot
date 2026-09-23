@@ -1,0 +1,51 @@
+# ===================================================================
+# render.yaml — دیپلوی HeavenCloud Userbot روی Render (Web Service)
+# ===================================================================
+# در Render:  New +  →  Blueprint  →  ریپو را انتخاب کن
+#
+# ⚠️ قبل از اولین دیپلوی، در Environment اینها را پر کن:
+#       API_ID            = api_id تلگرام
+#       API_HASH          = api_hash تلگرام
+#       LOGIN_BOT_TOKEN   = توکن ربات لاگین
+#       SESSION_STR       = رشتهٔ سشن (با /session از ربات لاگین بگیر)
+#
+# ⚠️ دیسک (پایین) را حذف نکن. بدون آن با *هر* دیپلوی و *هر* ریستارت،
+#    state.db پاک می‌شود و ربات به همهٔ عضوها دوباره ری‌اکشن می‌زند.
+#
+# ⚠️ Web Service رایگان بعد از ۱۵ دقیقه بی‌ترافیک می‌خوابد و ربات از
+#    تلگرام قطع می‌شود + دیسک هم نمی‌شود به سرویس رایگان چسباند.
+#    برای یوزربات باید plan: starter باشد.
+
+services:
+
+  - type: web
+    name: hc-userbot
+    runtime: docker
+    plan: starter                 # رایگان = می‌خوابد + دیسک ندارد
+    dockerfilePath: ./Dockerfile
+    region: frankfurt
+    healthCheckPath: /healthz     # health.py این را سرو می‌کند
+
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: DATA_DIR
+        value: /var/data          # = mountPath دیسک پایین
+      - key: TZ
+        value: UTC
+
+      # اینها را باید دستی در داشبورد پر کنی
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: LOGIN_BOT_TOKEN
+        sync: false
+      - key: SESSION_STR
+        sync: false
+
+    # state.db (تاریخچهٔ ری‌اکشن‌ها) و config.json اینجا می‌مانند
+    disk:
+      name: hc-userbot-data
+      mountPath: /var/data
+      sizeGB: 1

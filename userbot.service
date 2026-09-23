@@ -1,0 +1,17 @@
+[Unit]
+Description=HeavenCloud Telegram Userbot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/hc-userbot
+ExecStart=/opt/hc-userbot/venv/bin/python /opt/hc-userbot/userbot.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/hc-userbot.log
+StandardError=append:/var/log/hc-userbot.log
+
+[Install]
+WantedBy=multi-user.target

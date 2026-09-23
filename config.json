@@ -1,0 +1,57 @@
+{
+  "api_id": 25970061,
+  "api_hash": "1e0e64ad672a01f729c68fd27b1c7f2f",
+  "login_bot_token": "8604137047:AAELoyv5UhYrT_TfFbv0ZJDPXkqVBctEFBg",
+  "owner_id": 8650698064,
+  "_comment_chats": "فقط گروه‌هایی که با .addchat اضافه کنی. داخل گروه خودت بزن.",
+  "allowed_chats": [],
+  "reaction": {
+    "enabled": true,
+    "min_delay": 20,
+    "max_delay": 30,
+    "per_user_cooldown_hours": 24,
+    "settle_delay": 0,
+    "_comment_unlimited": "0 = نامحدود. هیچ پیامی دور ریخته نمی‌شود و هیچ عضوی جا نمی‌ماند.",
+    "max_age_minutes": 0,
+    "max_queue": 0,
+    "_comment_ttl": "group_ttl_hours: «زمان پاکسازی خودکار» گروه‌ها. پیامی که تا آن موقع ری‌اکشن نگیرد تلگرام پاکش می‌کند. ۰ = پاکسازی خودکار ندارند",
+    "_comment_workers": "workers: تعداد کارگر موازی. ظرفیت = workers × 86400 ÷ میانگین فاصله. با .workers N عوضش کن",
+    "workers": 1,
+    "_comment_window": "window_hours: پنجرهٔ کاری. سقف خودکار = ظرفیت × پنجره (مثلاً ۱ کارگر × ۲۰-۳۰s × ۱۲ ساعت = ۱۷۲۸ عضو). ۰ = بدون پنجره",
+    "window_hours": 12,
+    "fallback_emojis": [
+      "👍",
+      "❤️",
+      "🔥",
+      "🥰",
+      "👏",
+      "😁",
+      "🎉",
+      "🤩",
+      "💯",
+      "⚡"
+    ],
+    "group_ttl_hours": 24,
+    "auto_bump_delay": 1,
+    "max_delay_cap": 300,
+    "per_chat_gap": 30,
+    "reaction_check_hours": 6
+  },
+  "pm_autoreply": {
+    "enabled": false,
+    "once_per_user": true,
+    "_comment_admins": "reply_to_admins=false یعنی خودت و ادمین‌ها پاسخ خودکار نمی‌گیرند. با .pmadmins on عوضش کن",
+    "reply_to_admins": false,
+    "text": "سلام 👋 پیامت رسید، به زودی جواب می‌دم."
+  },
+  "admins": [
+    8650698064
+  ],
+  "_comment_admins": "این آیدی‌ها هم می‌توانند دستورات را اجرا کنند (با پیشوند . در پی‌وی یوزربات)",
+  "auto_add_chats": {
+    "enabled": true,
+    "min_members": 5,
+    "max_per_day": 200,
+    "exclude": []
+  }
+}
